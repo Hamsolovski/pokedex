@@ -1,4 +1,5 @@
-#Pokedex
+# Pokedex
+
 A simple Pokedex app to get to know how React works
 
 # React + Vite
