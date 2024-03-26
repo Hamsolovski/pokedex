@@ -28,31 +28,22 @@ const pokemonList = [
 
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
-
   const handleClickNext = () => {
     setPokemonIndex(pokemonIndex + 1);
   }
 
   const handleClickPrevious = () => {
-    pokemonIndex > 0 ? setPokemonIndex(pokemonIndex - 1) : null;
+    setPokemonIndex(pokemonIndex - 1);
   }
-      if (pokemonIndex === 0) {
-        return<div>
-        <PokemonCard pokemon={pokemonList[pokemonIndex]} />
-        <button onClick={handleClickNext}>Suivant</button>
-        </div>
-      } else if (pokemonIndex === pokemonList.length - 1) {
-        return <div>
-        <PokemonCard pokemon={pokemonList[pokemonIndex]} />
-        <button onClick={handleClickPrevious}>Précédent</button>
-        </div>
-      } else {
-        return <div>
-        <PokemonCard pokemon={pokemonList[pokemonIndex]} />
-        <button onClick={handleClickPrevious}>Précédent</button>
-        <button onClick={handleClickNext}>Suivant</button>
-        </div>
-    }
+
+  return (
+    <div>
+      <PokemonCard pokemon={pokemonList[pokemonIndex]} />
+      {pokemonIndex > 0 && <button onClick={handleClickPrevious}>Précédent</button>}
+      {pokemonIndex < pokemonList.length - 1 && <button onClick={handleClickNext}>Suivant</button>}
+    </div>
+
+  )
 }
 
 export default App
