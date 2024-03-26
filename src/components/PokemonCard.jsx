@@ -32,7 +32,7 @@ function PokemonCard({pokemon}) {
         {pokemon.imgSrc ? <img style={cardImg} src={pokemon.imgSrc} alt={pokemon.name} /> : <p>???</p>}
         <figcaption style={cardText}>{pokemon.name}</figcaption>
     </figure>
-
+    
 }
 
 export default PokemonCard;
