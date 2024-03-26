@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const card = {
     padding: "2em",
     backgroundColor: "silver",
@@ -17,6 +19,13 @@ const cardText = {
     border: "2px solid black",
 }
 
+PokemonCard.propTypes = {
+    pokemon: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        imgSrc: PropTypes.string,
+    }).isRequired,
+    
+};
 
 function PokemonCard({pokemon}) {
     return <figure style={card}>
