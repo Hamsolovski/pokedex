@@ -7,41 +7,42 @@ import NavBar from './components/NavBar'
 
 const pokemonList = [
   {
+    id: 1,
+    order: 1,
     name: "Bulbizarre",
     imgSrc: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
   },
   {
+    id: 2,
+    order: 4,
     name: "Salamèche",
     imgSrc: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
   },
   {
+    id: 3,
+    order: 7,
     name: "Carapuce",
     imgSrc: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
   },
   {
+    id: 4,
+    order: 25,
     name: "Pikachu",
     imgSrc: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
   },
   {
+    id: 5,
+    order: 151,
     name: "Mew"
   },
 ]
 
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
-  
-  const handleClickNext = () => {
-    setPokemonIndex(pokemonIndex + 1);
-  }
-
-  const handleClickPrevious = () => {
-    setPokemonIndex(pokemonIndex - 1);
-  }
-
 
   return (
     <div>
-      <NavBar pokemonIndex={pokemonIndex} handleClickNext={handleClickNext} handleClickPrevious={handleClickPrevious} pokemonList={pokemonList} />
+      <NavBar pokemonList={pokemonList} setPokemonIndex={setPokemonIndex}/>
       <PokemonCard pokemon={pokemonList[pokemonIndex]} />
     </div>
 

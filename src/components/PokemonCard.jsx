@@ -47,7 +47,7 @@ PokemonCard.propTypes = {
 function PokemonCard({pokemon}) {
     return <figure style={card}>
         {pokemon.imgSrc ? <img style={cardImg} src={pokemon.imgSrc} alt={pokemon.name} /> : <p style={noImg}>???</p>}
-        <figcaption style={cardText}>{pokemon.name}</figcaption>
+        <figcaption style={cardText}>#{pokemon.order} {pokemon.name}</figcaption>
     </figure>
 
 }
