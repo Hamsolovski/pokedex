@@ -4,7 +4,8 @@ const card = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-end",
-    padding: "2em 2em 2em 2em",
+    margin: "0",
+    padding: "2em",
     height: "500px",
     width: "500px",
     backgroundColor: "#990e05",
@@ -20,6 +21,7 @@ const cardImg = {
 
 const cardText = {
     backgroundColor: "white",
+    boxShadow: "0px 0px 5px black",
     color: "black",
     fontSize: "2em",
     border: "2px solid black",
@@ -32,6 +34,7 @@ const noImg = {
     backgroundColor: "white",
     color: "black",
     height: "100%",
+    width: "100%",
     fontSize: "2em",
     border: "2px solid black",
 }

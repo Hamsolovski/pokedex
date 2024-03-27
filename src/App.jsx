@@ -1,9 +1,18 @@
 import { useState } from 'react'
+import { useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import PokemonCard from './components/PokemonCard'
 import NavBar from './components/NavBar'
+
+const pokedex = {
+  display: "flex",
+  backgroundColor: "#990e05",
+  width: "700px",
+  border: "2px solid black",
+
+};
 
 const pokemonList = [
   {
@@ -40,9 +49,17 @@ const pokemonList = [
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
 
+  useEffect(
+    () => {
+      alert("Salut à toi, dresseur Pokémon !")
+    },
+    []
+  );
+
+
   return (
-    <div>
-      <NavBar pokemonList={pokemonList} setPokemonIndex={setPokemonIndex}/>
+    <div style={pokedex}>
+      <NavBar pokemonList={pokemonList} setPokemonIndex={setPokemonIndex} pokemonIndex={pokemonIndex}/>
       <PokemonCard pokemon={pokemonList[pokemonIndex]} />
     </div>
 

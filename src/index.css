@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -37,21 +39,31 @@ h1 {
 
 button {
   border-radius: 8px;
+  width: 120px;
   border: 1px solid transparent;
+  margin: 2px;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #990e05;
+  border: 2px solid black;
   cursor: pointer;
   transition: border-color 0.25s;
+  box-shadow: 0px 0px 3px black;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: white;
+  color: #990e05;
+  border-color: #990e05;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+figcaption {
+  font-family: "Press Start 2P";
 }
 
 @media (prefers-color-scheme: light) {
