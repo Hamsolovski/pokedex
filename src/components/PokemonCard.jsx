@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useEffect } from "react";
 
 const card = {
     display: "flex",
@@ -39,7 +40,8 @@ const noImg = {
     border: "2px solid black",
 }
 
-function PokemonCard({pokemon}) {
+function PokemonCard({ pokemon }) {
+
     return <figure style={card}>
         {pokemon.sprites.front_default ? <img style={cardImg} src={pokemon.sprites.front_default} alt={pokemon.name} /> : <p style={noImg}>???</p>}
         <figcaption style={cardText}>#{pokemon.id} {pokemon.name}</figcaption>

@@ -23,39 +23,36 @@ const samplePokemon =
   },
 }
 
-// const sortOrder = (a, b) => {
-//   return a.order - b.order;
-// }
-
 function App() {
-  const [pokemonIndex, setPokemonIndex] = useState(0)
+  const [pokemon, setPokemon] = useState(samplePokemon)
+  const [filter, setFilter] = useState('bulbasaur')
   const [pokemonList, setPokemonList] = useState([samplePokemon])
 
   useEffect(() => {
     fetch('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151')
       .then(response => response.json())
-      .then(data => {
-        const tab = [];
-        for (let i = 0; i < 151; i++) {
-          fetch(data.results[i].url)
-            .then(response => response.json())
-            .then(data => {
-              tab.push(data)
-              tab.sort()
-              setPokemonList(tab)
-              })
-            .catch(error => console.error(error));
-        } 
-      })
+      .then(data => setPokemonList(data.results))
       .catch(error => console.error(error));
-    }, 
-    [])
+    }, [])
 
+    useEffect(() => {
+      fetch(`https://pokeapi.co/api/v2/pokemon/${filter}/`)
+      .then((response) => response.json())
+      .then(data => {
+        console.log('data', data)
+        setPokemon(data)
+    })
+      .catch(e => console.error(e))
+  }, [filter])
+
+    console.log('pokemonList', pokemonList)
+    console.log('filter', filter)
+    console.log('pokemon', pokemon)
     
   return (
     <div style={pokedex}>
-      {pokemonList === null ? null : <NavBar pokemonList={pokemonList} setPokemonIndex={setPokemonIndex}/>}
-      <PokemonCard pokemon={pokemonList[pokemonIndex]} />
+      {pokemonList === null ? null : <NavBar pokemonList={pokemonList} setFilter={setFilter}/>}
+      <PokemonCard pokemon={pokemon}/>
     
     </div>
   )
