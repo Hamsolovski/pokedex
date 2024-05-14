@@ -16,12 +16,10 @@ const cardImg = {
   boxShadow: "0px 0px 5px black",
   backgroundColor: "white",
   height: "90%",
-  border: "2px solid black",
 };
 
 const cardText = {
   backgroundColor: "white",
-  boxShadow: "0px 0px 5px black",
   color: "black",
   fontSize: "1.5em",
 };
@@ -35,13 +33,12 @@ const noImg = {
   height: "100%",
   width: "100%",
   fontSize: "2em",
-  border: "2px solid black",
 };
 
 const cardDetails = {
   backgroundColor: "white",
   color: "black",
-  border: "2px solid black",
+  borderTop: "20px solid #990e05",
   fontSize: "0.8em",
 };
 
