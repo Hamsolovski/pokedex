@@ -8,25 +8,15 @@ const pokedex = {
   display: "flex",
   backgroundColor: "#990e05",
   width: "800px",
-  height: "475px",
+  height: "700px",
   border: "2px solid black",
 
 };
 
-const samplePokemon =
-{
-  id: 1,
-  name: "Bulbizarre",
-  order: 1,
-  sprites: {
-    front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-  },
-}
-
 function App() {
-  const [pokemon, setPokemon] = useState(samplePokemon)
+  const [pokemon, setPokemon] = useState(null)
   const [filter, setFilter] = useState('bulbasaur')
-  const [pokemonList, setPokemonList] = useState([samplePokemon])
+  const [pokemonList, setPokemonList] = useState([])
 
   useEffect(() => {
     fetch('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151')
@@ -38,21 +28,15 @@ function App() {
     useEffect(() => {
       fetch(`https://pokeapi.co/api/v2/pokemon/${filter}/`)
       .then((response) => response.json())
-      .then(data => {
-        console.log('data', data)
-        setPokemon(data)
-    })
+      .then(data => 
+        setPokemon(data))
       .catch(e => console.error(e))
   }, [filter])
-
-    console.log('pokemonList', pokemonList)
-    console.log('filter', filter)
-    console.log('pokemon', pokemon)
     
   return (
     <div style={pokedex}>
       {pokemonList === null ? null : <NavBar pokemonList={pokemonList} setFilter={setFilter}/>}
-      <PokemonCard pokemon={pokemon}/>
+      {pokemon ? <PokemonCard pokemon={pokemon}/> : <p>Welcome to my pokedex !</p>}
     
     </div>
   )

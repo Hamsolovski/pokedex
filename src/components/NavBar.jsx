@@ -11,7 +11,7 @@ const navscreen = {
     padding: "16px",
     border: "2px solid black",
     backgroundColor: "white",
-    height: "400px",
+    height: "600px",
     overflowY: "scroll",
 }
 
